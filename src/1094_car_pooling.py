@@ -1,7 +1,12 @@
 def carPooling(trips: list[list[int]], capacity: int) -> bool:
-    spots = {}
+    spots = [0] * 1001
     for trip in trips:
-        for i in range(trip[1], trip[2]):
-            spots[i] = trip[0] + spots.get(i, 0)
-    max_needed = max(spots.values())
-    return capacity >= max_needed
+        spots[trip[1]] += trip[0]
+        spots[trip[2]] -= trip[0]
+    
+    needed = 0
+    for i in spots:
+        needed += i
+        if needed > capacity:
+            return False
+    return True
