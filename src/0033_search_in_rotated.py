@@ -13,7 +13,7 @@ def search(nums: list[int], target: int) -> int:
         
         if left > right:
             return -1
-        m = right - left // 2
+        m = (right - left) // 2
         middle = nums[m]
         if middle == target:
             return m
