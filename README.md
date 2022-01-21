@@ -1,3 +1,3 @@
 My LeetCode solutions.
 
-All solutions use python, since it gives me least friction for these kinds of problems.
+All solutions are in python, and modified so they can run locally without the LeetCode boilerplate.
