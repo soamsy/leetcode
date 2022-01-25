@@ -1,3 +1,5 @@
+import collections
+
 def watchedVideosByFriends(watchedVideos: list[list[str]], friends: list[list[int]], id: int, level: int) -> list[str]:
     q = collections.deque([(id, 0)])
     

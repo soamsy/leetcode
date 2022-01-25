@@ -1,3 +1,5 @@
+import collections
+
 def shortestPath(grid: list[list[int]], k: int) -> int:
     m, n = len(grid), len(grid[0])
     q = collections.deque()

@@ -1,3 +1,6 @@
+import collections
+
+
 def canReach(arr: list[int], start: int) -> bool:
     traversed = [False] * len(arr)
     q = collections.deque([start])
