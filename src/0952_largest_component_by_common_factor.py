@@ -1,5 +1,5 @@
 import math
-
+import itertools
 def largestComponentSize(nums: list[int]) -> int:
     nums.sort()
     uf = {}

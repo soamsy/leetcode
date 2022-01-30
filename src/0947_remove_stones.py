@@ -1,4 +1,4 @@
-def removeStones(points):
+def removeStones(stones):
     uf = {}
     num_roots = 0
     def find(x):
@@ -9,7 +9,7 @@ def removeStones(points):
         if x != uf[x]:
             uf[x] = find(uf[x])
         return uf[x]
-    for i, j in points:
+    for i, j in stones:
         i_root = find(i)
         j_root = find(-j)
         if i_root != j_root:
@@ -18,4 +18,4 @@ def removeStones(points):
     return num_roots
 
 
-print(removeStones([[0,0],[0,1],[1,0],[1,2],[2,1],[2,2]]))
+removeStones([[0,0],[0,1],[1,0],[1,2],[2,1],[2,2]])
