@@ -22,9 +22,9 @@ def tallestBillboard(rods: list[int]) -> int:
         if right is not None:
             right += rods[i]
         
-        empty = fn(target, i+1)
+        unused = fn(target, i+1)
         
-        validPaths = [total for total in [left, right, empty] if total is not None]
+        validPaths = [total for total in [left, right, unused] if total is not None]
         
         if validPaths:
             return max(validPaths)
