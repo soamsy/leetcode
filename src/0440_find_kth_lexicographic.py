@@ -7,7 +7,6 @@ def findKthNumber(n: int, k: int) -> int:
         return int(''.join([str(x) for x in curr]))
 
     while k > 0 and len(curr) <= max_level:
-        last = curr[-1]
         stepsToInc = 0
         num_levels = max_level - len(curr)
         for level in range(num_levels):
@@ -19,7 +18,7 @@ def findKthNumber(n: int, k: int) -> int:
         available_at_level = max(0, high - low + 1)
         stepsToInc += available_at_level
 
-        if k - stepsToInc >= 0:
+        if k - stepsToInc >= 0 and curr[-1] != 9:
             k -= stepsToInc
             curr[-1] += 1
         else:
