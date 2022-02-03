@@ -1,3 +1,4 @@
+import math
 def numberOfBoomerangs(points: list[list[int]]) -> int:
     def dist_metric(a, b):
         return (a[0] - b[0])**2 + (a[1] - b[1])**2
