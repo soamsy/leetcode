@@ -6,7 +6,7 @@ def findPairs(nums: list[int], k: int) -> int:
     nums = list(sorted(set(nums)))
     indexes = { c: i for i, c in enumerate(nums)}
     total = 0
-    for i, num in enumerate(nums):
+    for num in nums:
         if num + k in indexes:
             total += 1
         
