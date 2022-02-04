@@ -1,4 +1,4 @@
-def minMoves2(nums: List[int]) -> int:
+def minMoves2(nums: list[int]) -> int:
     nums.sort()
     mid = len(nums) // 2
     median = nums[mid]
