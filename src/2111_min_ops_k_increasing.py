@@ -1,4 +1,6 @@
+from bisect import bisect_right
 import itertools
+
 def kIncreasing(arr: list[int], k: int) -> int:
     def lengthOfLIS(nums: List[int]) -> int:
         sub = []
