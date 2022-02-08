@@ -1,3 +1,4 @@
+import collections
 def findTheDifference(s: str, t: str) -> str:
     count = collections.Counter(s)
     for c in t:
