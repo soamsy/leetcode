@@ -1,5 +1,7 @@
 def reverseBits(n: int) -> int:
-    s = str(bin(n))
-    s = s[2:]
-    s = ((32 - len(s)) * "0") + s
-    return int('0b' + (''.join(list(reversed(s)))), 2)
+    result = 0
+    for i in range(32):
+        result <<= 1
+        result = result | (n & 1)
+        n >>= 1
+    return result
