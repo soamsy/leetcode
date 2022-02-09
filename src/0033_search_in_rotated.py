@@ -2,31 +2,19 @@ def search(nums: list[int], target: int) -> int:
     if not nums:
         return -1
     
-    first = nums[0]
-    search_left = first <= target
-    def binary(left, right):
-        def in_array_search():
-            if middle < target:
-                return binary(m + 1, right)
-            else:
-                return binary(left, m - 1)
-        
-        if left > right:
-            return -1
-        m = (right + left) // 2
-        middle = nums[m]
-        if middle == target:
-            return m
-        in_left = middle >= first
-        if search_left:
-            if in_left:
-                return in_array_search()
-            else:
-                return binary(left, m - 1)
-        else:
-            if in_left:
-                return binary(m + 1, right)
-            else:
-                return in_array_search()
+    searchLeft = nums[0] <= target
     
-    return binary(0, len(nums) - 1)
+    left, right = 0, len(nums) - 1
+    while left <= right:
+        m = (left + right) // 2
+        if nums[m] == target:
+            return m
+        
+        inLeft = nums[0] <= nums[m]
+        inTargetArray = searchLeft == inLeft
+        if (inTargetArray and nums[m] < target) or (not inTargetArray and inLeft):
+            left = m + 1
+        else:
+            right = m - 1
+        
+    return -1
