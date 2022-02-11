@@ -16,8 +16,8 @@ def exist(board: list[list[str]], word: str) -> bool:
             return False
         
         consumed.add((i, j))
-        for d in dirs:
-            if backtrack(i+d[0], j+d[1], c+1):
+        for x, y in dirs:
+            if backtrack(i+x, j+y, c+1):
                 consumed.remove((i, j))
                 return True
         consumed.remove((i, j))
