@@ -1,4 +1,5 @@
 import collections
+
 def pacificAtlantic(heights: list[list[int]]) -> list[list[int]]:
     m, n = len(heights), len(heights[0])
     pacific = [[False] * n for _ in range(m)]
@@ -14,22 +15,18 @@ def pacificAtlantic(heights: list[list[int]]) -> list[list[int]]:
         p.appendleft((0,j))
         a.appendleft((m-1,j))
         
-    
     def inBounds(x, y):
         return 0 <= x < m and 0 <= y < n
     
+    directions = [(0,1),(1,0),(0,-1),(-1,0)]
     def flood(q, island):
         while q:
             x, y = q.pop()
             island[x][y] = True
-            if inBounds(x+1, y) and heights[x+1][y] >= heights[x][y] and not island[x+1][y]:
-                q.appendleft((x+1,y))
-            if inBounds(x-1, y) and heights[x-1][y] >= heights[x][y] and not island[x-1][y]:
-                q.appendleft((x-1,y))
-            if inBounds(x, y+1) and heights[x][y+1] >= heights[x][y] and not island[x][y+1]:
-                q.appendleft((x,y+1))
-            if inBounds(x, y-1) and heights[x][y-1] >= heights[x][y] and not island[x][y-1]:
-                q.appendleft((x,y-1))
+            for a, b in directions:
+                if inBounds(x+a, y+b) and heights[x+a][y+b] >= heights[x][y]:
+                    if not island[x+a][y+b]:
+                        q.appendleft((x+a,y+b))
                 
     flood(p, pacific)
     flood(a, atlantic)
