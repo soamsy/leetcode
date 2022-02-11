@@ -1,3 +1,5 @@
+from math import ceil
+
 def rotate(matrix: list[list[int]]) -> None:
     """
     Do not return anything, modify matrix in-place instead.
