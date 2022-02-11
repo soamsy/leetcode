@@ -1,16 +1,13 @@
 def merge(intervals: list[list[int]]) -> list[list[int]]:
     intervals.sort(key=lambda i: i[0])
     
-    result = []
+    r = []
     start = intervals[0][0]
     end = intervals[0][1]
     for i in intervals:
-        if end >= i[0]:
-            end = max(end, i[1])
+        if r and r[-1][1] >= i[0]:
+            r[-1][1] = max(r[-1][1], i[1])
         else:
-            result.append([start, end])
-            start = i[0]
-            end = i[1]
-    result.append([start, end])
+            r.append(i)
     
-    return result
+    return r
