@@ -2,7 +2,7 @@ from bisect import bisect_right
 import itertools
 
 def kIncreasing(arr: list[int], k: int) -> int:
-    def lengthOfLIS(nums: List[int]) -> int:
+    def lengthOfLIS(nums: list[int]) -> int:
         sub = []
         for x in nums:
             if len(sub) == 0 or sub[-1] <= x:
