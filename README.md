@@ -1,3 +1,3 @@
 My LeetCode solutions.
 
-All solutions are in python, and modified so they can run locally without the LeetCode boilerplate.
+Solutions in python are modified so they can run locally without the LeetCode boilerplate.
