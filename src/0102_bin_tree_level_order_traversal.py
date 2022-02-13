@@ -7,7 +7,7 @@ class TreeNode:
         self.left = left
         self.right = right
 
-def levelOrder(root: Optional[TreeNode]) -> List[List[int]]:
+def levelOrder(root: Optional[TreeNode]) -> list[list[int]]:
     
     q = collections.deque()
     q.append((root, 0))
